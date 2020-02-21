@@ -1,4 +1,4 @@
-package com.github.jvmgo.classfile.constantpool;
+package com.github.jvmgo.classFile.constantPool;
 
 import com.github.jvmgo.classfile.ClassReader;
 
@@ -24,28 +24,28 @@ public interface ConstantInfo {
 
 
     //Factory method
-    static ConstantInfo createConstantInfo(int tag, ClassReader reader, ConstantPool constPool) {
+    static ConstantInfo createConstantInfo(int tag, ClassReader reader, com.github.jvmgo.classfile.constantpool.ConstantPool constPool) {
         switch (tag) {
             //数字
             case CONST_TAG_INTEGER:
-                return new ConstantIntegerInfo(reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantIntegerInfo(reader);
             case CONST_TAG_FLOAT:
-                return new ConstantFloatInfo(reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantFloatInfo(reader);
             case CONST_TAG_LONG:
-                return new ConstantLongInfo(reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantLongInfo(reader);
             case CONST_TAG_DOUBLE:
-                return new ConstantDoubleInfo(reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantDoubleInfo(reader);
 
             case CONST_TAG_UTF8:
-                return new ConstantUft8Info(reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantUft8Info(reader);
 
             //以下3个引用UTF8
             case CONST_TAG_STRING:
-                return new ConstantStringInfo(constPool, reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantStringInfo(constPool, reader);
             case CONST_TAG_CLASS:
-                return new ConstantClassInfo(constPool, reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantClassInfo(constPool, reader);
             case CONST_TAG_NAME_AND_TYPE:
-                return new ConstantNameAndTypeInfo(constPool, reader);
+                return new com.github.jvmgo.classfile.constantpool.ConstantNameAndTypeInfo(constPool, reader);
 
             //以下3个引用CLASS+NAME_AND_TYPE
             case CONST_TAG_FIELD_REF:

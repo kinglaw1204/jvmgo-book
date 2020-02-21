@@ -1,4 +1,4 @@
-package com.github.jvmgo.classfile.constantpool;
+package com.github.jvmgo.classFile.constantPool;
 
 import com.github.jvmgo.classfile.ClassReader;
 
@@ -12,14 +12,14 @@ import com.github.jvmgo.classfile.ClassReader;
  * u2 name_and_type_index;//指向CONSTANT_NameAndType_info
  * }
  */
-public class ConstantMemberrefInfo implements ConstantInfo {
+public class ConstantMemberrefInfo implements com.github.jvmgo.classfile.constantpool.ConstantInfo {
 
-    private ConstantPool constPool;
+    private com.github.jvmgo.classfile.constantpool.ConstantPool constPool;
 
     private int classIndex;
     private int nameAndTypeIndex;
 
-    public ConstantMemberrefInfo(ConstantPool aConstPool, ClassReader reader) {
+    public ConstantMemberrefInfo(com.github.jvmgo.classfile.constantpool.ConstantPool aConstPool, ClassReader reader) {
         this.classIndex = reader.nextU2ToInt();
         this.nameAndTypeIndex = reader.nextU2ToInt();
         this.constPool = aConstPool;
@@ -33,13 +33,14 @@ public class ConstantMemberrefInfo implements ConstantInfo {
 
     @Override
     public String toString() {
-        ConstantInfo[] constantInfos = constPool.getConstantInfos();
-        ConstantClassInfo constClassInfo = (ConstantClassInfo) constantInfos[classIndex];
-        ConstantNameAndTypeInfo nameAndTypeInfo = (ConstantNameAndTypeInfo) constantInfos[nameAndTypeIndex];
-        return "ConstantMemberrefInfo{" +
-                constClassInfo + "  " +
-                nameAndTypeInfo +
-                '}';
+//        com.github.jvmgo.classfile.constantpool.ConstantInfo[] constantInfos = constPool.getConstantInfos();
+//        com.github.jvmgo.classfile.constantpool.ConstantClassInfo constClassInfo = (com.github.jvmgo.classfile.constantpool.ConstantClassInfo) constantInfos[classIndex];
+//        com.github.jvmgo.classfile.constantpool.ConstantNameAndTypeInfo nameAndTypeInfo = (com.github.jvmgo.classfile.constantpool.ConstantNameAndTypeInfo) constantInfos[nameAndTypeIndex];
+//        return "ConstantMemberrefInfo{" +
+//                constClassInfo + "  " +
+//                nameAndTypeInfo +
+//                '}';
+        return "";
     }
 
 }
